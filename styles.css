@@ -1,194 +1,215 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-body {
+:root {
+  --color-yellow-light: #FFF78A;
+  --color-yellow-darker: #FFD86E;
+  --color-yellow-100: #FFC47E;
+  --color-pale-orange-dark: #FFAD84;
+  --color-pale-yellow-light: #FFE382;
+  --color-yellow-lighter: #F6FFA6;
+  --color-yellow-light: #F49D1A;
+  --color-red-dark: #B70404;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-
-   
 }
-header
-{
-  color: #008170;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 100px;
-  z-index: 1000;
+
+body {
+  font-size: 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
-header .logo
-{
-  color: #fff;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.toggle
-{
-  position: relative;
-  width: 60px;
-  height: 60px;
-}
-
-.toggle.active {
-  background-size: 40px;
-  background-position: center;
-  cursor: pointer;
-}
-
-.toggle svg path {
-  fill: white; 
-}
-.main
-{
-  position: absolute;
-  right: 0;
-  width: 100%;
-  min-height: 100vh;
-  padding: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0F0F0F;
-  transition: 0.5s;
-  z-index: 2;
-}
-.main.active
-{
-  right: 300px;
-}
-
-
-.overlay
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #008170;
-  mix-blend-mode: overlay;
- 
-}
-.text
-{
-  position: relative;
-  z-index: 10;
-  color: #008170;
-}
-
-.text h2
-{
-  font-size: 6em;
-  font-weight: 800;
-  color: #008170;
-  line-height: 1em;
-  text-transform: uppercase;
-  
-}
-.text h3
-{
-  font-size: 4em;
-  font-weight: 700;
-  line-height: 1em;
-  text-transform: uppercase;
-  color: #F875AA;
-}
-.text h4
-{
-  font-size: 2.5em;
-  font-weight: 700;
-  line-height: 1em;
-  text-transform: uppercase;
-  color: #008170;
-}
-.text p
-{
-  font-size: 1.1em;
-  color: #F875AA;
-  margin: 20px 0;
-  font-weight: 400;
-  max-width: 700px;
-}
-.text a
-{
-  display: inline-block;
-  font-size: 1em;
-  color: #008170;
-  padding: 10px 30px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 500;
-  margin-top: 10px;
-  
-  letter-spacing: 2px;
-  transition: 0.2s;
-}
-.text a:hover
-{
-  letter-spacing: 6px;
-}
-
-.menu
-{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #232D3F;
-  color: #008170;
-}
-.menu ul
-{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #FBAB7E;
+  background-image: linear-gradient(5deg, #ffd700 0%, #FfC47e  35%, #89cff0 100%);
   position: relative;
-  color: #008170;
 }
-.menu ul li
-{
-  list-style: none;
-  color: #008170;
-}
-.menu ul li a
-{
-  text-decoration: none;
-  font-size: 34px;
+
+.text {
   font-family: 'Anybody', sans-serif;
-  /* color: #0F0F0F; */
-  color: #008170;
-}
-.menu ul li a:hover
-{
-  color: #008170;
- 
+  font-size: 3.0rem;
+  color: #003285;
+  text-align: center;
+  padding-top: 1em;
 }
 
-@media (max-width: 991px)
-{
-  .main,
-  .main header
-  {
-    padding: 40px;
-  }
-  .text h2
-  {
-    font-size: 4em;
-  }
-  .text h3
-  {
-    font-size: 3em;
+.links {
+  text-align: center;
+
+  padding: 2em;
+  
+}
+
+.links a {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 2.5rem;
+  color: #003285;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: var(--color-yellow-light);
+}
+
+/* Scene elements */
+.ground {
+  height: 150px;
+  width: 100%;
+  background: #493323;
+  position: absolute;
+  bottom: 0;
+}
+
+.sun {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: -10px;
+  left: -10px;
+  background: #FFC700;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0 10px hsla(298, 70%, 92%, 0.53),
+              0px 0px 0 20px hsla(298, 70%, 92%, 0.3);
+  animation: sunshine 30s linear infinite;
+}
+
+.sun svg {
+  scale: 2;
+}
+
+.sun svg path {
+  fill: #F4CE14;
+}
+
+.cloud {
+  height: 40px;
+  border-radius: 20px;
+  width: 360px;
+  position: absolute;
+  background: linear-gradient(90deg, #75C2F6 0%, #1D5D9B 100%);
+  opacity: 0.8;
+  top: 180px;
+  left: 0;
+  z-index: -1;
+  animation: moveCloud 20s linear infinite;
+}
+
+.cloud-small {
+  top: 85px;
+  height: 25px;
+  left: 200px;
+  width: 500px;
+  animation: windBlow-small 35s linear infinite;
+}
+
+.cloud-bottom {
+  top: 260px;
+  left: 600px;
+  width: 400px;
+  animation: windBlow-bottom 40s linear infinite;
+}
+
+.cloud-medium {
+  top: 460px;
+  left: 200px;
+  width: 500px;
+  animation: windBlow-bottom 30s linear infinite;
+}
+
+/* Animations */
+@keyframes sunshine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes moveCloud {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes windBlow {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-360px); }
+}
+
+@keyframes windBlow-small {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-700px); }
+}
+
+@keyframes windBlow-bottom {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-1000px); }
+}
+
+/* Media queries */
+@media screen and (min-width: 1366px) {
+  body { font-size: 3rem; }
+  .cloud { animation-duration: 20s; }
+}
+
+@media screen and (max-width: 1365px) and (min-width: 1024px) {
+  body { font-size: 2.5rem; }
+  .cloud { animation-duration: 30s; }
+}
+
+@media screen and (max-width: 1023px) {
+  body { font-size: 2rem; }
+  .cloud { animation-duration: 40s; }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
-a{
-  color: #008170;
+#cloud {
+  background: rgba(255, 255, 255);
+  width: 300px; 
+  height: 100px;
+  border-radius: 150px;	
+  box-shadow: 10px 10px rgba(0,0,0,0.2);
+  animation: move 3s infinite;
+}
+
+#cloud:after {
+  content: '';
+  background: rgba(255, 255, 255);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: -50px;
+  left: 50px;
+}
+
+#cloud:before {
+  content: '';
+  background: rgba(255, 255, 255);
+  position: absolute;
+  width: 170px;
+  height: 150px;
+  border-radius: 50%;
+  top: -90px;
+  right: 40px;
+}
+
+@keyframes move {
+  0% {
+    transform: translatex(0);
+  }
+  50% {
+    transform: translatex(-40px);
+  }
 }
