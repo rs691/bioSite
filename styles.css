@@ -85,7 +85,8 @@ body {
 }
 
 .sun svg path {
-  fill: #F4CE14;
+  transform: scale(2);
+  transform-origin: center center;
 }
 
 .cloud {
