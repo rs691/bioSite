@@ -42,9 +42,7 @@ body {
 
 .links {
   text-align: center;
-
   padding: 2em;
-  
 }
 
 .links a {
@@ -57,7 +55,7 @@ body {
 }
 
 .links a:hover {
-  color: var(--color-yellow-light);
+  color: var(--color-red-dark);
 }
 
 /* Scene elements */
