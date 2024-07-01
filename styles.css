@@ -1,93 +1,45 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: 'Anybody', sans-serif;
+  background-color: #F9F9E0;
    
 }
-header
-{
-  color: #008170;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 100px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
-header .logo
-{
-  color: #fff;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.toggle
-{
-  position: relative;
-  width: 60px;
-  height: 60px;
-}
 
-.toggle.active {
-  background-size: 40px;
-  background-position: center;
-  cursor: pointer;
-}
 
-.toggle svg path {
-  fill: white; 
-}
 .main
 {
   position: absolute;
-  right: 0;
+
   width: 100%;
   min-height: 100vh;
   padding: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0F0F0F;
-  transition: 0.5s;
-  z-index: 2;
-}
-.main.active
-{
-  right: 300px;
-}
 
 
-.overlay
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #008170;
-  mix-blend-mode: overlay;
  
 }
+
+
 .text
 {
+  
   position: relative;
   z-index: 10;
-  color: #008170;
+  color: #E88D67;
 }
 
 .text h2
 {
-  font-size: 6em;
+  font-size: 5em;
   font-weight: 800;
-  color: #008170;
+  color: #26355D;
   line-height: 1em;
   text-transform: uppercase;
   
@@ -98,20 +50,20 @@ header .logo
   font-weight: 700;
   line-height: 1em;
   text-transform: uppercase;
-  color: #F875AA;
+  color: #3AA6B9;
 }
 .text h4
 {
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: 700;
   line-height: 1em;
   text-transform: uppercase;
-  color: #008170;
+  color: #3AA6B9;
 }
 .text p
 {
-  font-size: 1.1em;
-  color: #F875AA;
+  font-size: 1em;
+  color: #3AA6B9;
   margin: 20px 0;
   font-weight: 400;
   max-width: 700px;
@@ -120,7 +72,6 @@ header .logo
 {
   display: inline-block;
   font-size: 1em;
-  color: #008170;
   padding: 10px 30px;
   text-transform: uppercase;
   text-decoration: none;
@@ -135,42 +86,8 @@ header .logo
   letter-spacing: 6px;
 }
 
-.menu
-{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #232D3F;
-  color: #008170;
-}
-.menu ul
-{
-  position: relative;
-  color: #008170;
-}
-.menu ul li
-{
-  list-style: none;
-  color: #008170;
-}
-.menu ul li a
-{
-  text-decoration: none;
-  font-size: 34px;
-  font-family: 'Anybody', sans-serif;
-  /* color: #0F0F0F; */
-  color: #008170;
-}
-.menu ul li a:hover
-{
-  color: #008170;
- 
-}
+
+
 
 @media (max-width: 991px)
 {
@@ -191,4 +108,49 @@ header .logo
 
 a{
   color: #008170;
+}
+img{
+  width: 60px;
+  background-color: #B7C9F2;
+}
+
+#cass {
+  width:400px;
+  height:500px;
+
+}
+.container{
+text-align: center;
+}
+/* Change the background color of the navbar */
+.navbar {
+  background-color: #F9F9E0;
+ 
+}
+
+/* Change the font in the navbar */
+.navbar-brand, .nav-link, .nav-link-about, .nav-link-hobbies {
+  font-family: 'Anybody', sans-serif;
+  font-size: 2.4rem; /* Adjust as needed */
+  color: #26355D;
+  margin: 4px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.nav-link{
+padding-left: 15%;
+}
+.nav-link-hobbies{
+  padding-left: 0;
+  }
+
+.nav-link-about{
+    padding-right: 15%;
+    font-weight: 500;
+    }
+
+
+/* Optional: Change the color of the links when hovered */
+.nav-link:hover {
+  color: blue;
 }
