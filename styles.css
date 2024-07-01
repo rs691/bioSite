@@ -1,45 +1,93 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Anybody', sans-serif;
-  background-color: #F9F9E0;
+  font-family: 'Poppins', sans-serif;
+
    
 }
+header
+{
+  color: #008170;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+header .logo
+{
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.toggle
+{
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
 
+.toggle.active {
+  background-size: 40px;
+  background-position: center;
+  cursor: pointer;
+}
 
+.toggle svg path {
+  fill: white; 
+}
 .main
 {
   position: absolute;
-
+  right: 0;
   width: 100%;
   min-height: 100vh;
   padding: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-
- 
+  background-color: #0F0F0F;
+  transition: 0.5s;
+  z-index: 2;
+}
+.main.active
+{
+  right: 300px;
 }
 
 
+.overlay
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #008170;
+  mix-blend-mode: overlay;
+ 
+}
 .text
 {
-  
   position: relative;
   z-index: 10;
-  color: #E88D67;
+  color: #008170;
 }
 
 .text h2
 {
-  font-size: 5em;
+  font-size: 6em;
   font-weight: 800;
-  color: #26355D;
+  color: #008170;
   line-height: 1em;
   text-transform: uppercase;
   
@@ -50,20 +98,20 @@ body {
   font-weight: 700;
   line-height: 1em;
   text-transform: uppercase;
-  color: #3AA6B9;
+  color: #F875AA;
 }
 .text h4
 {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 700;
   line-height: 1em;
   text-transform: uppercase;
-  color: #3AA6B9;
+  color: #008170;
 }
 .text p
 {
-  font-size: 1em;
-  color: #3AA6B9;
+  font-size: 1.1em;
+  color: #F875AA;
   margin: 20px 0;
   font-weight: 400;
   max-width: 700px;
@@ -72,6 +120,7 @@ body {
 {
   display: inline-block;
   font-size: 1em;
+  color: #008170;
   padding: 10px 30px;
   text-transform: uppercase;
   text-decoration: none;
@@ -86,8 +135,42 @@ body {
   letter-spacing: 6px;
 }
 
-
-
+.menu
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #232D3F;
+  color: #008170;
+}
+.menu ul
+{
+  position: relative;
+  color: #008170;
+}
+.menu ul li
+{
+  list-style: none;
+  color: #008170;
+}
+.menu ul li a
+{
+  text-decoration: none;
+  font-size: 34px;
+  font-family: 'Anybody', sans-serif;
+  /* color: #0F0F0F; */
+  color: #008170;
+}
+.menu ul li a:hover
+{
+  color: #008170;
+ 
+}
 
 @media (max-width: 991px)
 {
@@ -100,14 +183,9 @@ body {
   {
     font-size: 4em;
   }
-  .text h3
-  {
-    font-size: 3em;
+  50% {
+    transform: translatex(-40px);
   }
-}
-
-a{
-  color: #008170;
 }
 img{
   width: 60px;
