@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 :root {
   --color-yellow-light: #FFF78A;
   --color-yellow-darker: #FFD86E;
@@ -10,12 +9,24 @@
   --color-yellow-lighter: #F6FFA6;
   --color-yellow-light: #F49D1A;
   --color-red-dark: #B70404;
-}
+  --cloud-animation-duration: 20s;
+    --cloud-height: 120px;
+    --cloud-width: 370px;
+    --cloud-border-radius: 100px;
+    --cloud-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    --animation-duration-slow: 35s;
+    --animation-duration-medium: 25s;
+    --animation-duration-fast: 20s;
+  }
+
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+img{
+    background-color: white;
 }
 
 body {
@@ -27,8 +38,10 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-image: linear-gradient(5deg, #ffd700 0%, #FfC47e  35%, #89cff0 100%);
+  background-image: linear-gradient(5.5rad, #89cff0 0%, #FfC47e 35%, #ffd86e 100%);
+  background-image: linear-gradient(5.5rad, #ffd86e 0%, #89cff0 35%, #ffc47e 100%);
   position: relative;
+ 
 }
 
 .text {
@@ -36,7 +49,7 @@ body {
   font-size: 3.0rem;
   color: #003285;
   text-align: center;
-  padding-top: 1em;
+ 
 }
 
 .links {
@@ -46,7 +59,7 @@ body {
 }
 
 .links a {
-  padding:30px;
+  padding: 30px;
   display: inline-block;
   margin: 0 15px;
   font-size: 3.5rem;
@@ -59,9 +72,15 @@ body {
   color: var(--color-red-dark);
 }
 
-/* Scene elements */
+.scene-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .ground {
-  height: 150px;
+  height: 200px;
   width: 100%;
   background: #493323;
   position: absolute;
@@ -70,8 +89,8 @@ body {
 
 .sun {
   position: fixed;
-  width: 130px;
-  height: 130px;
+  width: 160px;
+  height: 160px;
   top: -10px;
   left: -10px;
   background: #FFC700;
@@ -80,10 +99,12 @@ body {
               0px 0px 0 40px hsla(51, 100%, 50%, 0.2),
               0px 0px 0 60px hsla(51, 100%, 50%, 0.1);
   animation: sunshine 30s linear infinite;
+  will-change: transform;
+  
 }
 
 .sun svg {
-  transform:(1);
+  transform: scale(1);
   fill: #FF0000;
   width: 100%;
   height: 100%;
@@ -92,71 +113,15 @@ body {
 .sun svg path {
   transform: scale(2);
   transform-origin: center center;
- 
 }
 
-.cloud {
-  height: 40px;
-  border-radius: 20px;
-  width: 360px;
-  position: absolute;
-  background: linear-gradient(90deg, #75C2F6 0%, #1D5D9B 100%);
-  opacity: 0.8;
-  top: 180px;
-  left: 0;
-  z-index: -1;
-  animation: moveCloud 20s linear infinite;
-}
-
-.cloud-small {
-  top: 85px;
-  height: 30px;
-  left: 200px;
-  width: 500px;
-  animation: windBlow-small 35s linear infinite;
-}
-
-.cloud-bottom {
-  top: 260px;
-  left: 600px;
-  width: 400px;
-  animation: windBlow-bottom 40s linear infinite;
-}
-
-.cloud-medium {
-  top: 460px;
-  left: 200px;
-  width: 500px;
-  animation: windBlow-bottom 30s linear infinite;
-}
-
-/* Animations */
 @keyframes sunshine {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-@keyframes moveCloud {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
 
-@keyframes windBlow {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-360px); }
-}
 
-@keyframes windBlow-small {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-700px); }
-}
-
-@keyframes windBlow-bottom {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-1000px); }
-}
-
-/* Media queries */
 @media screen and (min-width: 1366px) {
   body { font-size: 3rem; }
   .cloud { animation-duration: 20s; }
@@ -179,42 +144,114 @@ body {
   }
 }
 
-#cloud {
-  background: rgba(255, 255, 255);
-  width: 300px; 
-  height: 100px;
-  border-radius: 150px;	
-  box-shadow: 10px 10px rgba(0,0,0,0.2);
-  animation: move 3s infinite;
-}
 
-#cloud:after {
-  content: '';
-  background: rgba(255, 255, 255);
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  top: -50px;
-  left: 50px;
-}
-
-#cloud:before {
-  content: '';
-  background: rgba(255, 255, 255);
-  position: absolute;
-  width: 170px;
-  height: 150px;
-  border-radius: 50%;
-  top: -90px;
-  right: 40px;
-}
 
 @keyframes move {
-  0% {
-    transform: translatex(0);
-  }
-  50% {
-    transform: translatex(-40px);
-  }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-40px); }
+  100% { transform: translateX(0); }
+}
+@keyframes animateCloudReverse {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+
+#background-wrap {
+  bottom: 0;
+  left: 0;
+  padding-top: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+
+
+.cloud2:after, .cloud2:before {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.cloud2:after {
+  border-radius: 100px;
+  height: 100px;
+  left: 50px;
+  top: -50px;
+  width: 100px;
+}
+
+.cloud2:before {
+  border-radius: 200px;
+  width: 180px;
+  height: 180px;
+  right: 50px;
+  top: -90px;
+}
+
+.cloud2, .cloud3 {
+  background: #fff;
+  border-radius: var(--cloud-border-radius);
+  box-shadow: var(--cloud-shadow);
+  height: var(--cloud-height);
+  position: relative;
+  width: var(--cloud-width);
+}
+
+.cloud2:after, .cloud2:before,
+.cloud3:after, .cloud3:before {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+.cloud3:after, .cloud3:before {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.cloud3:after {
+  border-radius: 100px;
+  height: 100px;
+  left: 50px;
+  top: -50px;
+  width: 100px;
+}
+
+.cloud3:before, .cloud2:before {
+  border-radius: 200px;
+  width: 180px;
+  height: 180px;
+  right: 50px;
+  top: -90px;
+}
+
+
+
+
+.x1 {
+  animation: animateCloud 35s linear infinite;
+  transform: scale(0.65);
+}
+
+.x5 {
+  animation: animateCloud 25s linear infinite;
+  transform: scale(0.55);
+}
+.x3 {
+  animation: animateCloudReverse 20s linear infinite;
+  transform: scale(0.55);
+}
+.x1, .x3, .x5 {
+  will-change: transform;
+}
+
+@keyframes animateCloud {
+  0% { transform: translate3d(-1000px, 0, 0); }
+  100% { transform: translate3d(100%, 0, 0); }
 }
