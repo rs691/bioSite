@@ -1,5 +1,11 @@
+
+/* imports the "Anybody", italics, various weights font family from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+
+
+/* CSS variables for colors and cloud animation properties.*/
 :root {
   --color-yellow-light: #FFF78A;
   --color-yellow-darker: #FFD86E;
@@ -9,28 +15,29 @@
   --color-yellow-lighter: #F6FFA6;
   --color-yellow-light: #F49D1A;
   --color-red-dark: #B70404;
+
+
+  /*Cloud-animation variables -refer to for reuse*/
   --cloud-animation-duration: 20s;
     --cloud-height: 120px;
     --cloud-width: 370px;
     --cloud-border-radius: 100px;
     --cloud-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
-    --animation-duration-slow: 35s;
-    --animation-duration-medium: 25s;
-    --animation-duration-fast: 20s;
+    --animation-duration-slow: 25s;
+    --animation-duration-medium: 20s;
+    --animation-duration-fast: 15s;
+    --animate-duration: 1000ms;
   }
 
-
+/*For all elements*/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-img{
-    background-color: white;
-}
 
 body {
-  font-size: 16px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,39 +45,87 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-image: linear-gradient(5.5rad, #89cff0 0%, #FfC47e 35%, #ffd86e 100%);
   background-image: linear-gradient(5.5rad, #ffd86e 0%, #89cff0 35%, #ffc47e 100%);
   position: relative;
+}
+
+img{
+  width: 300px;
+  height: 300px;
+  padding-bottom: 10px;
  
 }
 
 .text {
   font-family: 'Anybody', sans-serif;
+  padding-bottom: 100px;
   font-size: 3.0rem;
   color: #003285;
   text-align: center;
- 
+}
+.about .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+h2{
+  text-align: start;
 }
 
+.image-container {
+  flex: 0 0 auto;
+}
+
+.text-container {
+  flex: 1 1 auto;
+}
+
+.text-container p {
+  margin: 10px 0;
+  padding-left: 20px;
+  font-size: 2.5rem;
+  color: #003285;
+  font-family: 'Anybody', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .about .container {
+    flex-direction: column;
+  }
+}
+
+/*Links section*/
 .links {
-  text-align: center;
-  padding: 2em;
-  font-weight: 100;
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Position from the right side */
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center;
+  padding-right: 60px;
+  z-index: 1000;
 }
 
 .links a {
-  padding: 30px;
-  display: inline-block;
+  font-family: 'Anybody', sans-serif;
+  padding: 10px 20px;
   margin: 0 15px;
-  font-size: 3.5rem;
+  font-size: 2.0rem;
   color: #003285;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .links a:hover {
   color: var(--color-red-dark);
+  animation: bounce 1.0s ease infinite;
 }
+
+
+
+
+
 
 .scene-container {
   overflow: hidden;
@@ -80,7 +135,7 @@ body {
 }
 
 .ground {
-  height: 200px;
+  height: 150px;
   width: 100%;
   background: #493323;
   position: absolute;
@@ -89,8 +144,8 @@ body {
 
 .sun {
   position: fixed;
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   top: -10px;
   left: -10px;
   background: #FFC700;
@@ -106,8 +161,8 @@ body {
 .sun svg {
   transform: scale(1);
   fill: #FF0000;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
 }
 
 .sun svg path {
@@ -217,7 +272,7 @@ body {
 
 .cloud3:after {
   border-radius: 100px;
-  height: 100px;
+  height: 150px;
   left: 50px;
   top: -50px;
   width: 100px;
@@ -235,23 +290,33 @@ body {
 
 
 .x1 {
-  animation: animateCloud 35s linear infinite;
-  transform: scale(0.65);
+  padding-top: 60px;
+  animation: animateCloud var(--animation-duration-slow) linear infinite; 
 }
 
 .x5 {
-  animation: animateCloud 25s linear infinite;
+  padding-top: 30px;
+  animation: animateCloud var(--animation-duration-fast) linear infinite;
   transform: scale(0.55);
 }
 .x3 {
+  padding-top: 50px;
   animation: animateCloudReverse 20s linear infinite;
   transform: scale(0.55);
 }
 .x1, .x3, .x5 {
   will-change: transform;
+  transform-origin: center center;
 }
 
 @keyframes animateCloud {
   0% { transform: translate3d(-1000px, 0, 0); }
   100% { transform: translate3d(100%, 0, 0); }
+}
+@media screen and (max-width: 768px) {
+  .links a {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    margin: 0 10px;
+  }
 }
